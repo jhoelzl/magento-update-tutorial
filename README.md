@@ -1,5 +1,5 @@
 # Magento Update Tutorial
-Useful Tipps for Magento Core and Module Update
+Useful Overview for Magento Core and Module Update
 
 ## Magento Core Update
 ### Prearrangement
