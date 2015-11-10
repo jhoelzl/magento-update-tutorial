@@ -3,7 +3,7 @@ Useful Overview for Magento Core and Extenstion Update
 
 ## Magento Core Update
 ### Prearrangement
-* Install `git`, `modman`, `n98-magerun`
+* Install `git`, `modman`, `composer` and `n98-magerun`
 * Download latest Magento CE version
 
 ### Project Structure
@@ -28,6 +28,7 @@ project
     ├───etc.
     └───var
 ```
+The magento root folder does not contain any files in `git`, all files are deployed through the `.modman` folder.
 
 ### Inspection
 t.b.d.
