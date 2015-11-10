@@ -5,9 +5,12 @@ Useful Overview for Magento Core and Extenstion Update
 ### Prearrangement
 * Install `git`, `modman`, `n98-magerun`
 * If it is possible, separate your existing Magento core files into a modman folder
-* Download latest
+* Download latest Magento CE version
+
+
 ### Inspection
 t.b.d.
+
 ### File Update Process
 t.b.d.
 
@@ -58,6 +61,8 @@ t.b.d.
 * Run deployment process (if you have one)
 
 ## Perfect Magento Remote Deployment
+A lot of people are using the `maintenance.flag` in the Magento root folder to ensure a maintenance page for the users.
+
 * Enable maintenance mode: `n98-magerun.phar sys:maintenance`
 * Remove all remote files (except `media` and `var` folder)
 * Deploy Magento Core: `modman deploy magento_core --force --copy`
