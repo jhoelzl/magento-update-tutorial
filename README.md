@@ -63,11 +63,13 @@ t.b.d.
 ### File Update Process
 * If you have custom template and skin files for your module, better move them to the modman folder of your custom template or to a separate modman module called `.modman/YOUR-MODULE-PATH_custom`.
 * You have to update your custom template files as well. Inspect the diff between the original current module version and the latest module version. Integrate these changes in your custom template and skin files if necessary.
-* Remove old module files: `git rm -r .modman/YOUR-MODULE-PATH`
-* Copy the new module files to the path .modman/YOUR-MODULE-PATH
+* The new version can have modified, additional, or less files. Therefore just copying the new version over the exisintg one is unsafe, because files that are removed in the new version will stay in our git repository.
+* Therefore ,remove all old module files: `git rm -r .modman/YOUR-MODULE-PATH`
+* With your FTP client, copy the new module files to the path .modman/YOUR-MODULE-PATH
 * Update modman file, e.g. with this [quick command](https://gist.github.com/jhoelzl/08d0c7f4edeece4584bf) `gm` that is placed in your `.bashrc`.
-* `git add -u` and `git add .modman/YOUR-MODULE-PATH`
-* `git status` gives you back all the changes
+* Add to git stage: `git add -u` and `git add .modman/YOUR-MODULE-PATH`
+* `git status` gives you back all the changed files
+* `git diff --cached` or `git difftool --cached` gives you back all the changes
 * Make a commit: `git commit -m "Updated Module from 1.xx to 2.xx"`
 
 ### Testing
