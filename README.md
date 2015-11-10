@@ -84,7 +84,29 @@ t.b.d.
 * Run deployment process (if you have one)
 
 ## Perfect Magento Remote Deployment
-A lot of people are using the `maintenance.flag` in the Magento root folder to ensure a maintenance page for the users.
+A lot of people are using the `maintenance.flag` in the Magento root folder to ensure a maintenance page for the users. However, this only works if the Magento Core files are existent. In this deployment, we also deploy the Magento core files (so we have to remove them before), therefore the maintenance mode would not work.
+
+For that reason we add two static files `maintenance.php` and `.htaccess.maintenance` in our magento root git repository. The content of `.htaccess.maintenance` includes a simple redirect to the `maintenance.php` page, which can be customized on your own:
+
+````
+FileETag None  
+<ifModule mod_headers.c>  
+Header unset ETag  
+Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"  
+Header set Pragma "no-cache"  
+Header set Expires "Mon, 1 Jan 2010 01:00:00 GMT"  
+</ifModule>  
+
+<IfModule mod_rewrite.c>
+ RewriteEngine on
+ RewriteCond %{REQUEST_URI} !/maintenance.php$ [NC]
+ RewriteCond %{REQUEST_URI} !\.(jpe?g?|png|gif) [NC]
+ RewriteRule .* /maintenance.php [R=503,L]
+ ErrorDocument 503 /maintenance.php
+</IfModule>
+````
+
+During deployment, a symlink from `.htaccess` to `.htaccess.maintenance` returns a stable maintenance page regardless of the Magento core files.
 
 * Enable maintenance mode: `n98-magerun.phar sys:maintenance`
 * Remove all remote files (except `media` and `var` folder)
