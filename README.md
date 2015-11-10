@@ -21,7 +21,7 @@ t.b.d.
 
 ## 3rd party Module Update
 ### Prearrangement
-* Install git, modman, n98-magerun
+* Install `git`, `modman`, `n98-magerun`
 * Move the existing module files to modman structure for better decoupling of module files
 * Download latest version of 3rd party module
 
@@ -43,9 +43,10 @@ t.b.d.
 * Inspect backend settings of module and adjust values
 * Check class rewrite conflicts, e.g. with `n98-magerun.phar dev:module:rewrite:conflicts`
 * Check if module has cronjobs, e.g. with `n98-magerun.phar sys:cron:list`
+* Check entries in `var/log/system.log` and `var/log/exception.log`
 * If everything is fine, push to Test or Dev environment and test again
 
 ### Deployment
 * Make backup of SQL and all magento related files of your production environment
-* git push
+* git push to your LIVE instance branch
 * Run deployment process (if you have one)
