@@ -127,4 +127,4 @@ During deployment, a symlink from `.htaccess` to `.htaccess.maintenance` returns
 * Reindex: `n98-magerun.phar index:reindex:all`
 * Flush cache: `n98-magerun.phar cache:flush`
 * Remove unsafe folders and files, such as `downloader`, `dev`, `.git`, `gitmodules`, etc.
-* Disable maintenance mode: Symlink `.htaccess` to your custom file, such as '../.modman/magento_core_custom/.htaccess'
+* Disable maintenance mode: Symlink `.htaccess` to your custom file, such as `.modman/magento_core_custom/.htaccess`
