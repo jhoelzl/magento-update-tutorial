@@ -84,7 +84,10 @@ t.b.d.
 * Run deployment process (if you have one)
 
 ## Perfect Magento Remote Deployment
-A lot of people are using the `maintenance.flag` in the Magento root folder to ensure a maintenance page for the users. However, this only works if the Magento Core files are existent. In this deployment, we also deploy the Magento core files (so we have to remove them before), therefore the maintenance mode would not work.
+The following deployment script is used in my production system and usually takes 4-10 minutes (based on number of modules and database size), with a downtime of the website of about 1-2 minutes.
+
+### Maintenance Mode
+A lot of people are using the `maintenance.flag` in the Magento root folder to ensure a maintenance page for the users. However, this only works if the Magento Core files are existent. In this deployment, we also deploy the Magento core files (so we have to remove them before), therefore the Magento maintenance mode would not work some time during the process.
 
 For that reason we add two static files `maintenance.php` and `.htaccess.maintenance` in our magento root git repository. The content of `.htaccess.maintenance` includes a simple redirect to the `maintenance.php` page, which can be customized on your own:
 
@@ -106,8 +109,11 @@ Header set Expires "Mon, 1 Jan 2010 01:00:00 GMT"
 </IfModule>
 ````
 
-During deployment, a symlink from `.htaccess` to `.htaccess.maintenance` returns a stable maintenance page regardless of the Magento core files.
+During deployment, a symlink from `.htaccess` to `.htaccess.maintenance` returns a stable maintenance page regardless of the existance of Magento core files. Moreover, this redirect preserves the URL of the user in the browser.
 
+### Deployment Script
+* Backup sql database and all shop files and store backup files into a folder which automatically removes them after about 1-2 months.
+* 
 * Enable maintenance mode: `n98-magerun.phar sys:maintenance`
 * Remove all remote files (except `media` and `var` folder)
 * Deploy Magento Core: `modman deploy magento_core --force --copy`
