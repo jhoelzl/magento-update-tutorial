@@ -35,6 +35,7 @@ t.b.d.
 * You have to update your custom template files as well. Inspect the diff between the original current module version and the latest module version. Integrate these changes in your custom template and skin files if necessary.
 * Remove old module files: `git rm -r .modman/YOUR-MODULE-PATH`
 * Copy the new module files to the path .modman/YOUR-MODULE-PATH
+* Update modman file, e.g. with this quick command 
 * `git status` gives you back all the changes
 * Make a commit: `git commit -m "Updated Module from 1.xx to 2.xx"`
 
