@@ -29,7 +29,7 @@ project
     └───var
 └───vendor    
 ```
-The magento root folder does not contain any files in `git` repository, all files are deployed from the `.modman` folder into the magento root folder. The `vendor``folder only contains cached files for `composer`. When a module is defined in `composer.json`, it is copied into `.modman/vendor_module`. Then it can be added to `git`.
+The magento root folder does not contain any files in `git` repository, all files are deployed from the `.modman` folder into the magento root folder. The `vendor` folder only contains cached files for `composer`. When a module is defined in `composer.json`, it is copied into `.modman/vendor_module`. Then it can be added to `git`.
 
 ### Inspection
 t.b.d.
