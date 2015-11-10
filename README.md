@@ -4,9 +4,30 @@ Useful Overview for Magento Core and Extenstion Update
 ## Magento Core Update
 ### Prearrangement
 * Install `git`, `modman`, `n98-magerun`
-* If it is possible, separate your existing Magento core files into a modman folder
 * Download latest Magento CE version
 
+### Project Structure
+* If it is possible, separate your existing Magento core files into a modman folder. This folder only contains the magento core files and a modman file.
+* For your adjusted Magento core files, such as `app/etc/local.xml`, `.htaccess` or `robots.txt` you can make a separate modman module called `magento_core_custom` which overwrites the original Magento core files.
+* A perfect structure would be:
+```
+project
+│   composer.json
+│   composer.lock  
+│   readme.txt
+└───.modman
+    ├───magento_core
+    ├───magento_core_custom
+    ├───firegento_magesetup
+    ├───etc.
+│
+└───magento
+    │   .modman-skip
+    ├───app
+    ├───media
+    ├───etc.
+    └───var
+```
 
 ### Inspection
 t.b.d.
