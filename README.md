@@ -11,7 +11,7 @@ t.b.d.
 
 ### Testing
 * Test on your local VM if you have one
-* Check class rewrite conflicts, e.g. with n98-magerun `dev:module:rewrite:conflicts`
+* Check class rewrite conflicts, e.g. with `n98-magerun.phar dev:module:rewrite:conflicts`
 * If everything is fine, push to Test or Dev environment and test again
 
 ### Deployment
@@ -41,6 +41,8 @@ t.b.d.
 ### Testing
 * Test on your local VM if you have one
 * Inspect backend settings of module and adjust values
+* Check class rewrite conflicts, e.g. with `n98-magerun.phar dev:module:rewrite:conflicts`
+* Check if module has cronjobs, e.g. with `n98-magerun.phar sys:cron:list`
 * If everything is fine, push to Test or Dev environment and test again
 
 ### Deployment
