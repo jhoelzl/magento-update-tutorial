@@ -1,9 +1,11 @@
 # Magento Update Tutorial
-Useful Overview for Magento Core and Module Update
+Useful Overview for Magento Core and Extenstion Update
 
 ## Magento Core Update
 ### Prearrangement
-t.b.d.
+* Install `git`, `modman`, `n98-magerun`
+* If it is possible, separate your existing Magento core files into a modman folder
+* Download latest
 ### Inspection
 t.b.d.
 ### File Update Process
@@ -18,6 +20,16 @@ t.b.d.
 * Make backup of SQL and all magento related files of your production environment
 * git push
 * Run deployment process (if you have one)
+* When you have the magento core as a modman module, you have to use modman copy strategy instead of symlink, because othwerwise `app/Mage.php` returns an error. In addition, you have to add a `.modman-skip` file into your magento root that includes a list of modman modules that should NOT be deployed with the command `modmand deploy-all`. This would be: `magento_core` and `magento_core_custom`.
+* Enable maintenance mode: `n98-magerun.phar sys:maintenance`
+* Remove all remote files (except `media` and `var` folder)
+* Deploy Magento Core: `modman deploy magento_core --force --copy`
+* Deploy Magento custom core files:  `modman deploy magento_core_custom --force --copy`
+* Deploy all other modules through symlinks: `modman deploy-all --force`
+* Run setup scripts: `n98-magerun.phar sys:run:setup`
+* Reindex: `n98-magerun.phar index:reindex:all`
+* Flush cache: `n98-magerun.phar cache:flush`
+* Disable maintenance mode: `n98-magerun.phar sys:maintenance`
 
 ## 3rd party Module Update
 ### Prearrangement
