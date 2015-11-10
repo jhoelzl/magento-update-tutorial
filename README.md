@@ -27,10 +27,11 @@ t.b.d.
 ### Inspection
 * Make a diff (e.g. Winmerge, Kaleidoscope) of your current module version and an original module files with the same version. If you have custom changes, move them to a separate module.
 * Make a diff (e.g. Winmerge (Win), Kaleidoscope (Mac)) of your current module version and the latest one. Investigate changes. Check mysql update scripts in order to have a quick overview what is going on in the database when updating this module.
-* If you have custom template and skin files for your module, you have to update them as well
+
 
 ### File Update Process
-
+* If you have custom template and skin files for your module, better move them to the modman folder of your custom template or to a separate modman module called .modman/YOUR-MODULE-PATH_custom.
+* You have to update your custom template files as well. Inspect the diff between the original current module version and the latest module version. Integrate these changes in your custom template and skin files if necessary.
 * git rm -r .modman/YOUR-MODULE-PATH
 * Copy the new module files to the path .modman/YOUR-MODULE-PATH
 * git status gives you back the changes
