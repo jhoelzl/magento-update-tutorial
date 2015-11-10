@@ -11,6 +11,7 @@ t.b.d.
 
 ### Testing
 * Test on your local VM if you have one
+* Check class rewrite conflicts, e.g. with n98-magerun `dev:module:rewrite:conflicts`
 * If everything is fine, push to Test or Dev environment and test again
 
 ### Deployment
@@ -30,12 +31,12 @@ t.b.d.
 
 
 ### File Update Process
-* If you have custom template and skin files for your module, better move them to the modman folder of your custom template or to a separate modman module called .modman/YOUR-MODULE-PATH_custom.
+* If you have custom template and skin files for your module, better move them to the modman folder of your custom template or to a separate modman module called `.modman/YOUR-MODULE-PATH_custom`.
 * You have to update your custom template files as well. Inspect the diff between the original current module version and the latest module version. Integrate these changes in your custom template and skin files if necessary.
-* git rm -r .modman/YOUR-MODULE-PATH
+* Remove old module files: `git rm -r .modman/YOUR-MODULE-PATH`
 * Copy the new module files to the path .modman/YOUR-MODULE-PATH
-* git status gives you back the changes
-* git commit -m "Updated Module from 1.xx to 2.xx"
+* `git status` gives you back all the changes
+* Make a commit: `git commit -m "Updated Module from 1.xx to 2.xx"`
 
 ### Testing
 * Test on your local VM if you have one
