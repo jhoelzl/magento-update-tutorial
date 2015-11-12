@@ -23,17 +23,17 @@ project
 │   composer.lock  
 │   readme.txt
 └───.modman
-    ├───magento_core
-    ├───magento_core_custom
-    ├───firegento_magesetup
+    ├───magento_core/
+    ├───magento_core_custom/
+    ├───firegento_magesetup/
     ├───...
 └───magento
     │   .modman-skip
-    ├───app
-    ├───media
+    ├───app/
+    ├───media/
     ├───...
     ├───...
-    └───var
+    └───var/
 └───vendor    
 ```
 The magento root folder does not contain any files in `git` repository, all files are deployed from the `.modman` folder into the magento root folder. The `vendor` folder only contains cached files for `composer`. When a module is defined in `composer.json`, it is copied into `.modman/vendor_module`. Then it can be added to `git`.
