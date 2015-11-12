@@ -62,19 +62,19 @@ In some rare cases it might be better to revert a prior core update on a live sy
 Someone could simply import a backup of the mysql database, but this could lead to some issues. The difficulty is to revert only core update related changes on the LIVE database and preserve new customer and order data that has been created after the core update.
 
 ### Generate a mySQL Revert Script
-* Make a copy of your datbase before you updated your Magento Core on your local or test instance.
-* When you have finished all your changes in the database run a database diff (e.g. use Freeware tool Toad for MySQL on Windows) and compare database data and schema changes. 
-* Generate a script for both of them (can be created automatically by the tool) and inspect the changes. Only Magento Core Update related changes should be visible.
-* Remove other unwanted changes.
+* Make a copy of your database before you update your Magento Core on your local or test instance.
+* When you have finished all your changes in the database run a database diff (e.g. use Freeware tool Toad for MySQL on Windows) and compare database data and schema changes.
+* Generate a script for both of them (usually can be created automatically by the tool) and inspect the changes. Only Magento Core Update related changes should be visible.
+* Remove other unwanted changes on mysql tables (such as index and sessions)
 
 ### Rebase your Commit to a single one
-* On your local git production branch (for the live system), rebase all your commits that are related to teh Magento Core update to a single one to ensure a quick revert.
+* Prior to your Magento Core update, on your local git production branch (for the live system), rebase all your commits that are related to the Magento Core update to a single one to ensure a quick revert.
 
 ### Rollback Local (TEST)
-* Revert git commit on your local productio branch: `git revert #SHA#`
+* Revert git commit on your local production branch: `git revert #SHA#`
 * Start local deployment process (if you have one, e.g. using modman, etc.)
 * Revert mySQL LIVE database with schema and data rollback
-* Inspect Magento webshop: there should be no errors and on admin backend the previous Magento Core Version should appear on footer
+* Inspect Magento webshop: there should be no errors and on admin backend the previous Magento Core Version should appear on footer.
 
 ### Rollback LIVE
 * Revert git commit on your local productio branch: `git revert #SHA#`
