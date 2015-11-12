@@ -72,12 +72,14 @@ Someone could simply import a backup of the mysql database, but this could lead 
 
 ### Rollback Local (TEST)
 * Revert git commit on your local productio branch: `git revert #SHA#`
+* Start local deployment process (if you have one, e.g. using modman, etc.)
 * Revert mySQL LIVE database with schema and data rollback
 * Inspect Magento webshop: there should be no errors and on admin backend the previous Magento Core Version should appear on footer
 
 ### Rollback LIVE
 * Revert git commit on your local productio branch: `git revert #SHA#`
-* Push to Origin and start deployment process: `git push origin`
+* Push to Origin: `git push origin`
+* Start remote deployment process (if you have one)
 * Revert mySQL LIVE database with schema and data rollback
 
 
