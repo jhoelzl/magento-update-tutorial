@@ -2,10 +2,10 @@
 Useful Overview for Magento Core and Extenstion Update
 
 Contents:
-[Update Magento Core](#magento-core-update)
-[Revert Magento Core Update](##-Revert-Magento-Core-Update)
-[Update 3rd-party Magento Extenstion](##-3rd-party-Module-Update)
-
+*[Update Magento Core](#magento-core-update)
+*[Revert Magento Core Update](#revert-magento-core-update)
+*[Update 3rd-party Magento Extenstion](#magento-extension-update)
+*[Perfect Magento Deployment Process](#perfect-magento-deployment)
 
 
 ## Magento Core Update <a name="magento-core-update"></a>
@@ -56,10 +56,10 @@ t.b.d.
 * When you have the magento core as a modman module, you have to use modman copy strategy instead of symlink, because othwerwise `app/Mage.php` returns an error. In addition, you have to add a `.modman-skip` file into your magento root that includes a list of modman modules that should NOT be deployed with the command `modmand deploy-all`. This would be: `magento_core` and `magento_core_custom`.
 * See "Perfect Magento Remote Deployment"
 
-## Revert Magento Core Update
+## Revert Magento Core Update <a name="revert-magento-core-update"></a>
 In some rare cases it might be better to revert a prior core update on a live system, e.g. if some unwanted behaviour arrise.
 
-## 3rd party Module Update
+## 3rd party Module Update <a name="magento-extension-update"></a>
 ### Prearrangement
 * Install `git`, `modman`, `n98-magerun`
 * Move the existing module files to modman structure for better decoupling of module files
@@ -95,7 +95,7 @@ In some rare cases it might be better to revert a prior core update on a live sy
 * git push to your LIVE instance branch
 * Run deployment process (if you have one)
 
-## Perfect Magento Remote Deployment
+## Perfect Magento Remote Deployment <a name="perfect-magento-deployment"></a>
 The following deployment script is used in my production system and usually takes 4-10 minutes (based on number of modules and database size), with a downtime of the website of about 1-2 minutes.
 
 ### Better Maintenance Mode
