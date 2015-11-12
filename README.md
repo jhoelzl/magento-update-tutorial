@@ -1,5 +1,5 @@
 # Magento Update and Deployment Tutorial
-Useful Overview for Magento Core and Extenstion Update
+Useful Best Practice Scenarios for Magento Core and Extenstion Update
 
 Contents:
 * [Update Magento Core](#magento-core-update)
@@ -57,7 +57,7 @@ t.b.d.
 * See "Perfect Magento Remote Deployment"
 
 ## Revert Magento Core Update <a name="revert-magento-core-update"></a>
-In some rare cases it might be better to revert a prior core update on a live system, e.g. if some unwanted behaviour arrise. A roll back includes to change the magento files and of course changes in database.
+In some rare cases it might be better to revert a prior core update on a live system, e.g. if some unwanted behaviour arrises. A roll back includes to change the magento files and of course changes in database.
 
 Someone could simply import a backup of the mysql database, but this could lead to some issues. The difficulty is to revert only core update related changes on the LIVE database and preserve new customer and order data that has been created after the core update.
 
