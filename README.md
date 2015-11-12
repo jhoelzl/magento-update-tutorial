@@ -57,7 +57,31 @@ t.b.d.
 * See "Perfect Magento Remote Deployment"
 
 ## Revert Magento Core Update <a name="revert-magento-core-update"></a>
-In some rare cases it might be better to revert a prior core update on a live system, e.g. if some unwanted behaviour arrise.
+In some rare cases it might be better to revert a prior core update on a live system, e.g. if some unwanted behaviour arrise. A roll back includes to change the magento files and of course changes in database.
+
+Someone could simply import a backup of the mysql database, but this could lead to some issues. The difficulty is to revert only core update related changes on the LIVE database and preserve new customer and order data that has been created after the core update.
+
+### Generate a mySQL Revert Script
+* Make a copy of your datbase before you updated your Magento Core on your local or test instance.
+* When you have finished all your changes in the database run a database diff (e.g. use Freeware tool Toad for MySQL on Windows) and compare database data and schema changes. 
+* Generate a script for both of them (can be created automatically by the tool) and inspect the changes. Only Magento Core Update related changes should be visible.
+* Remove other unwanted changes.
+
+### Rebase your Commit to a single one
+* On your local git production branch (for the live system), rebase all your commits that are related to teh Magento Core update to a single one to ensure a quick revert.
+
+### Rollback Local (TEST)
+* Revert git commit on your local productio branch: `git revert #SHA#`
+* Revert mySQL LIVE database with schema and data rollback
+* Inspect Magento webshop: there should be no errors and on admin backend the previous Magento Core Version should appear on footer
+
+### Rollback LIVE
+* Revert git commit on your local productio branch: `git revert #SHA#`
+* Push to Origin and start deployment process: `git push origin`
+* Revert mySQL LIVE database with schema and data rollback
+
+
+
 
 ## 3rd party Module Update <a name="magento-extension-update"></a>
 ### Prearrangement
