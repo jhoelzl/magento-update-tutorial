@@ -2,10 +2,10 @@
 Useful Overview for Magento Core and Extenstion Update
 
 Contents:
-*[Update Magento Core](#magento-core-update)
-*[Revert Magento Core Update](#revert-magento-core-update)
-*[Update 3rd-party Magento Extenstion](#magento-extension-update)
-*[Perfect Magento Deployment Process](#perfect-magento-deployment)
+* [Update Magento Core](#magento-core-update)
+* [Revert Magento Core Update](#revert-magento-core-update)
+* [Update 3rd-party Magento Extenstion](#magento-extension-update)
+* [Perfect Magento Deployment Process](#perfect-magento-deployment)
 
 
 ## Magento Core Update <a name="magento-core-update"></a>
