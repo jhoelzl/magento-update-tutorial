@@ -1,6 +1,13 @@
 # Magento Update and Deployment Tutorial
 Useful Overview for Magento Core and Extenstion Update
 
+Contents:
+[Update Magento Core](##-Magento-Core-Update)
+[Revert Magento Core Update](##-Revert-Magento-Core-Update)
+[Update 3rd-party Magento Extenstion](##-3rd-party-Module-Update)
+
+
+
 ## Magento Core Update
 ### Prearrangement
 * Install `git`, `modman`, `composer` and `n98-magerun`
@@ -48,6 +55,9 @@ t.b.d.
 * Run deployment process (if you have one)
 * When you have the magento core as a modman module, you have to use modman copy strategy instead of symlink, because othwerwise `app/Mage.php` returns an error. In addition, you have to add a `.modman-skip` file into your magento root that includes a list of modman modules that should NOT be deployed with the command `modmand deploy-all`. This would be: `magento_core` and `magento_core_custom`.
 * See "Perfect Magento Remote Deployment"
+
+## Revert Magento Core Update
+In some rare cases it might be better to revert a prior core update on a live system, e.g. if some unwanted behaviour arrise.
 
 ## 3rd party Module Update
 ### Prearrangement
