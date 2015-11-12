@@ -2,13 +2,13 @@
 Useful Overview for Magento Core and Extenstion Update
 
 Contents:
-[Update Magento Core](##-Magento-Core-Update)
+[Update Magento Core](#magento-core-update)
 [Revert Magento Core Update](##-Revert-Magento-Core-Update)
 [Update 3rd-party Magento Extenstion](##-3rd-party-Module-Update)
 
 
 
-## Magento Core Update
+## Magento Core Update <a name="magento-core-update"></a>
 ### Prearrangement
 * Install `git`, `modman`, `composer` and `n98-magerun`
 * Download latest Magento CE version
